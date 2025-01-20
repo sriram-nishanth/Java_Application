@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         REMOTE_SSH_CREDENTIALS_ID = 'Slave1'
-        REMOTE_HOST = '13.201.85.186'
+        REMOTE_HOST = '172.31.88.169'
         DOCKER_IMAGE = 'my-app:latest'
     }
 
@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code from GitHub...'
-                git url: 'https://github.com/dineshkrish1607/java_deploy.git', branch: 'main'
+                git url: 'https://github.com/sriram-nishanth/Java_Application.git', branch: 'main'
             }
         }
 
