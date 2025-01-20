@@ -5,6 +5,7 @@ pipeline {
         REMOTE_SSH_CREDENTIALS_ID = 'Slave1'
         REMOTE_HOST = '172.31.88.169'
         DOCKER_IMAGE = 'my-app:latest'
+        CONTAINER_NAME = 'my-app'  // Fixed container name
     }
 
     stages {
@@ -41,9 +42,11 @@ pipeline {
                 sshagent([env.REMOTE_SSH_CREDENTIALS_ID]) {
                     sh """
                     ssh -o StrictHostKeyChecking=no root@${REMOTE_HOST} '
-                        docker stop my-app || true
-                        docker rm my-app || true
-                        docker run -d --name my-app -p 8080:8080 ${env.DOCKER_IMAGE}
+                        # Force remove the existing container if it exists
+                        docker rm -f ${CONTAINER_NAME} || true
+
+                        # Run the new container
+                        docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${env.DOCKER_IMAGE}
                     '
                     """
                 }
