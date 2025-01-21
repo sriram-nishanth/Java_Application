@@ -80,7 +80,7 @@
 </head>
 <body>
     <header>
-        <h1>My Blog</h1>
+        <h1>Maven Project</h1>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -93,28 +93,71 @@
     <main>
         <article>
             <h2>Java Application</h2>
-            <p>Published on: <time datetime="2023-10-01">October 1, 2023</time></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p></time></p>
+            <p>Features
+User Authentication and Authorization.
+Database Operations: CRUD functionalities.
+Real-Time Operations: Using WebSockets or similar.
+File Handling: Uploads, downloads, and management.
+Reporting and Analytics.
+Tools
+IDE: IntelliJ IDEA, Eclipse, or NetBeans.
+Version Control: Git.
+Testing Frameworks: JUnit, Mockito, or TestNG.
+Let me know if you'd like a deeper dive into any of these aspects or if you have a specific application in mind. 😊</p>
             <a href="#">Read more...</a>
         </article>
 
         <article>
             <h2>Maven</h2>
-            <p>Published on: <time datetime="2023-10-02">October 2, 2023</time></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p></p>
+            <p>Maven is a tool that helps build and manage Java projects. Think of it as a manager that automates common tasks like compiling, testing, and packaging your code.
+
+What It Does
+Manages Dependencies: Handles external libraries so you don’t have to download them manually.
+Builds the Project: Compiles your code and turns it into a runnable file (like JAR or WAR).
+Standardizes Projects: Ensures all Java projects follow the same structure.</p>
             <a href="#">Read more...</a>
         </article>
 
         <article>
             <h2>DEVOPS</h2>
-            <p>Published on: <time datetime="2023-10-03">October 3, 2023</time></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p></p>
+            <p>Key Practices
+Continuous Integration (CI): Automatically test and merge code changes.
+
+Tools: Jenkins, GitHub Actions, GitLab CI/CD.
+Continuous Delivery (CD): Automatically deliver code to staging or production.
+
+Tools: ArgoCD, Spinnaker, or Jenkins.
+Infrastructure as Code (IaC): Define infrastructure (servers, databases) using code.
+
+Tools: Terraform, Ansible, CloudFormation.
+Monitoring and Logging: Track performance and fix issues faster.
+
+Tools: Prometheus, Grafana, ELK Stack.
+Containerization: Package apps with all dependencies to run anywhere.
+
+Tools: Docker, Kubernetes.
+DevOps Tools Overview
+Version Control: Git, GitHub, GitLab.
+CI/CD: Jenkins, CircleCI, GitHub Actions.
+Containers: Docker, Podman.
+Orchestration: Kubernetes, OpenShift.
+Monitoring: Prometheus, Grafana.
+Cloud Platforms: AWS, Azure, GCP.
+Key Benefits
+Faster time to market.
+Higher quality software.
+Fewer bugs and downtime.
+Better teamwork.
+Let me know if you want help with a specific DevOps tool or setting up a workflow! 🚀</p>
             <a href="#">Read more...</a>
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2023 My Blog. All rights reserved.</p>
+        <p>&copy; 2023 Sriram Nishanth. All rights reserved.</p>
     </footer>
 </body>
 </html>
