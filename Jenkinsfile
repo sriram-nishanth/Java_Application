@@ -1,62 +1,28 @@
 pipeline {
     agent any
-
-    environment {
-        REMOTE_SSH_CREDENTIALS_ID = 'Slave1'
-        REMOTE_HOST = '172.31.95.91'
-        DOCKER_IMAGE = 'my-app:latest'
-        CONTAINER_NAME = 'my-app'  // Fixed container name
+     tools {
+        maven "mymaven"
     }
-
     stages {
-        stage('Checkout') {
+        stage('Code') {
             steps {
-                echo 'Checking out code from GitHub...'
-                git url: 'https://github.com/sriram-nishanth/Java_Application.git', branch: 'main'
+                git "https://github.com/sriram-nishanth/Java_Application.git"
             }
         }
-
-        stage('Build') {
+        stage ("Build") {
             steps {
-                echo 'Building the project with Maven inside Docker...'
-                script {
-                    docker.image('maven:3.8.3-openjdk-17').inside {
-                        sh 'mvn clean package'
-                    }
-                }
+                sh 'mvn clean package'
             }
         }
-
-        stage('Build Docker Image') {
+        stage ("Dockerfile") {
             steps {
-                echo 'Building Docker image...'
-                script {
-                    docker.build(env.DOCKER_IMAGE)
-                }
+                sh 'docker build -t image1 .'
             }
         }
-
-        stage('Deploy to Remote Server') {
+        stage ("Deploy") {
             steps {
-                echo 'Deploying Docker container to remote server...'
-                sshagent([env.REMOTE_SSH_CREDENTIALS_ID]) {
-                    sh """
-                    ssh -o StrictHostKeyChecking=no root@${REMOTE_HOST} '
-                        # Force remove the existing container if it exists
-                        docker rm -f ${CONTAINER_NAME} || true
-
-                        # Run the new container
-                        docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${env.DOCKER_IMAGE}
-                    '
-                    """
-                }
+                sh 'docker run -itd --name cont1 -p 8081:8080 image1'
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline completed'
         }
     }
 }
